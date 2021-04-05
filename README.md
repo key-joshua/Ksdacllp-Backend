@@ -39,10 +39,10 @@ Before we get started Remember to take  :coffee:   :pizza:  and :dancer:   When 
 |NO  | VERBS  | ENDPOINTS                            | STATUS       | ACCESS      | DESCRIPTION                                |
 |----|--------|--------------------------------------|--------------|-------------|--------------------------------------------|
 | 1  | POST   | /api/auth/register-user              | 201 CREATED  | private     | create a user with email and password      |
-| 1  | POST   | /api/auth/verify-user-account        | 200 OK       | public      | verify user account through emailed link   |
-| 1  | POST   | /api/auth/resend-verification-link   | 200 OK       | public      | resend link through user email             |
-| 1  | POST   | /api/auth/login-user                 | 200 OK       | public      | login a user with email and password       |
-| Etc ...........
+| 2  | POST   | /api/auth/verify-user-account        | 200 OK       | public      | verify user account through emailed link   |
+| 3  | POST   | /api/auth/resend-verification-link   | 200 OK       | public      | resend link through user email             |
+| 4  | POST   | /api/auth/login-user                 | 200 OK       | public      | login a user with email and password       |
+| 5  | Etc    | .....................                | ......       | ......      | ......................................     |
 
 
 #### Other Tools
