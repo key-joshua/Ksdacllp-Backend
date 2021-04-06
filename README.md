@@ -11,7 +11,7 @@
 
 https://ksdacllp-backend.herokuapp.com
 
-#### This is the Github repository link of the frontend challenge 
+#### This is the Github repository link of the backend repo 
 
 https://github.com/key-joshua/Ksdacllp-Backend
 
