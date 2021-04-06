@@ -1,6 +1,8 @@
 [![Build Status](https://travis-ci.org/key-joshua/Ksdacllp-Backend.svg?branch=develop)](https://travis-ci.org/key-joshua/Ksdacllp-Backend)
 [![CircleCI](https://circleci.com/gh/key-joshua/Ksdacllp-Backend.svg?style=svg)](https://circleci.com/gh/key-joshua/Ksdacllp-Backend)
+[![Coverage Status](https://coveralls.io/repos/github/key-joshua/Ksdacllp-Backend/badge.svg?branch=develop)](https://coveralls.io/github/key-joshua/Ksdacllp-Backend?branch=develop)
 [![Maintainability](https://api.codeclimate.com/v1/badges/46ec829a6c58d122a657/maintainability)](https://codeclimate.com/github/key-joshua/Ksdacllp-Backend/maintainability)
+
 # FRONTEND CHALLEGE
 
 - This Backend Challenge
