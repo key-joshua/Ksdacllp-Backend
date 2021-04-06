@@ -9,7 +9,7 @@ const server = express();
 server.use(express.json());
 server.use(cors());
 
-mongoose.connect(process.env.TEST_DB, {
+mongoose.connect(process.env.DB, {
   useNewUrlParser: true,
   useCreateIndex: true,
   useUnifiedTopology: true

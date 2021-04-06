@@ -9,10 +9,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-const port = process.env.PORT;
-const DB_URL = process.env.DB;
-
-mongoose.connect(DB_URL, {
+mongoose.connect(process.env.DB, {
   useNewUrlParser: true,
   useCreateIndex: true,
   useUnifiedTopology: true
@@ -24,6 +21,6 @@ connection.once('open', () => { console.log("Development Db Connected"); });
 app.use('/api', allRoutes);
 app.get('**', (req, res) => res.status(200).json({ status: 200, message: `Welcome to Ksdacllp Backend` }));
 
-app.listen(port, () => { console.log('Server Started on', port); });
+app.listen(process.env.PORT, () => { console.log('Server Started on', process.env.PORT); });
 
 export default app;
