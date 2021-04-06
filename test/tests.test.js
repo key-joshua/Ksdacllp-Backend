@@ -3,7 +3,7 @@ import chaihttp from 'chai-http';
 import chai, { expect } from 'chai';
 import { INTERNAL_SERVER_ERROR, CREATED, OK } from 'http-status';
 
-import server from '../src/server';
+import app from '../src/index';
 import dummyData from './data.dummy';
 import userHelper from '../src/helpers/userHelper';
 import sessionHelper from '../src/helpers/sessionHelper';
@@ -18,7 +18,7 @@ const action = 'resetPassword';
 const confirmPassword = 'Qwerty@123';
 
 chai.use(chaihttp);
-const router = () => chai.request(server);
+const router = () => chai.request(app);
 
 describe('TEST REGISTER USER API', async () => {
   before(async () => {

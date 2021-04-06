@@ -8,7 +8,7 @@
     "kill": "Taskkill /IM node.exe /F",
     "start": "nodemon --exec babel-node ./src/index.js",
     "server": "nodemon --exec babel-node ./src/index.js",
-    "test": "NODE_ENV=test nyc mocha --require @babel/register 'test/**/**test.js' --timeout 100000 --exit"
+    "test": "NODE_ENV=test nyc mocha --require @babel/register 'test/**/**test.js' --timeout 500000 --exit"
   },
   "keywords": "KSDACLLP",
   "author": "kEY JOSHUA",
