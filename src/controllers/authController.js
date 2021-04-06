@@ -44,7 +44,7 @@ class AuthController {
         return responseHelper.response(res);
       }
 
-      const user = await userHelper.saveUser(req.body, generatedPassword, document, req.user.id);
+      const user = await userHelper.saveUser(req.body, generatedPassword, document, false, req.user.id);
       const session = await sessionHelper.generateSession(user.id, user.userName, user.email, user.isVerified);
 
       const url = `${process.env.FRONTEND_URL}/verify-user-account/${session}`;
@@ -72,10 +72,10 @@ class AuthController {
         return responseHelper.response(res);
       }
 
-      const user = await userHelper.verifyUserProfile(data.userId);
+      const user = await userHelper.verifyUserProfile(data.userId, true);
       await sessionHelper.destroySession('userId', data.userId);
 
-      const url = `${process.env.FRONTEND_URL}/login-user`;
+      const url = `${process.env.FRONTEND_URL}/login`;
       await emailService.sendSuccessEmail(url, 'Sir/Madam', user.email);
 
       responseHelper.handleSuccess(OK, 'User account has verified successfully. You can login now.', { user });
@@ -94,11 +94,11 @@ class AuthController {
      * @param {object} res data response.
      * @returns {object} response.
      */
-  static async sentVerificationLink(req, res) {
+  static async sendVerificationLink(req, res) {
     try {
       const user = await userHelper.userExist('email', req.body.email);
       if (!user) {
-        responseHelper.handleError(NOT_FOUND, 'Email not found, Check well your email.');
+        responseHelper.handleError(BAD_REQUEST, 'Email not found, Check well your email.');
         return responseHelper.response(res);
       }
 
@@ -112,10 +112,15 @@ class AuthController {
         }
         emailMessage = 'verify your account';
         const url = `${process.env.FRONTEND_URL}/verify-user-account/${session}`;
-        await emailService.sendVerificationLinkEmail(url, 'Sir/Madam', user.email);
+        await emailService.sendVerifyAccountEmail(url, generatedPassword, 'Sir/Madam', user.email);
       }
 
       if (req.params.action === 'resetPassword') {
+        if (user.isVerified === false) {
+          responseHelper.handleError(BAD_REQUEST, 'User account not verified.');
+          return responseHelper.response(res);
+        }
+
         emailMessage = 'reset your password account';
         const url = `${process.env.FRONTEND_URL}/reset-user-password/${session}`;
         await emailService.sendVerificationLinkEmail(url, 'Sir/Madam', user.email);

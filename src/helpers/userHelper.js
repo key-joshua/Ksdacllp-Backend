@@ -49,16 +49,17 @@ class UserHelper {
    * @param {object} body user details.
    * @param {string} generatedPassword user password.
    * @param {string} document user profile picture.
+   * @param {string} status true/false.
    * @param {string} parentId parent id.
    * @returns {object} saved user details.
    */
-  static async saveUser(body, generatedPassword, document, parentId) {
+  static async saveUser(body, generatedPassword, document, status, parentId) {
     const data = await UserSchema.create({
       profile: document,
       parentId,
       userName: body.userName,
       email: body.email,
-      isVerified: false,
+      isVerified: status,
       password: passwordHelper.hashPassword(generatedPassword),
       createdAt: new Date(),
       updatedAt: new Date()
@@ -96,13 +97,14 @@ class UserHelper {
   /**
    * verify user profile into users table in database.
    * @param {string} id table attribute.
+   * @param {string} status account status.
    * @returns {object} updated user details.
    */
-  static async verifyUserProfile(id) {
+  static async verifyUserProfile(id, status) {
     let data = await UserSchema.updateOne({ _id: id },
       {
         $set: {
-          isVerified: true
+          isVerified: status
         }
       }
     );

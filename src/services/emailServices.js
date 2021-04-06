@@ -1,4 +1,4 @@
-import nodemailer from 'nodemailer';
+import * as nodemailer from 'nodemailer';
 
 /**
 * This class contains all methods (functions) required to handle
@@ -26,80 +26,144 @@ class EmailHelper {
         debug: false,
       },
       {
-        from: 'SalonEverywhere <saloneverywheres@gmail.com>',
+        from: 'Kora Soft <saloneverywheres@gmail.com>',
       },
     );
 
     const messageObj = {
       to: `${name} <${to}>`,
-      subject: 'Procced With SalonEverywhere',
+      subject: 'Verify Kora Soft Account',
       text: `Hello ${name}`,
-      html: `<!DOCTYPE html>
-      <html>
-          <head>
-              <style type="text/css">
-                  body{ height: 100%; color: rgb(87, 87, 87)}
-                  h2 { color: rgb(121, 120, 120)}
-                  .pet-color{ color: rgb(175, 3, 3); }
-                  a { color: rgb(175, 3, 3); }
-                  a.button{ background-color:rgb(175, 3, 3); color: #ffff; border-radius: 10px; border: 0; padding: 10px 40px; text-decoration: none; display: inline-block; font-size: 16px;  margin: 20px 00px 20px 00px; }
-                  /* a.button:hover{ background-color: rgb(175, 3, 3); color: #fff; } */
-                  </style>
-                  <title></title>
-              </head>
-              <body>
+      html: `<div>
+      <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+              <div style="
+              width: 100%;
+              display: grid;
+              grid-template-columns: 1fr 1fr;
+              justify-content: space-between;">
+                  <h1 style="
+                  font-size: 15px;
+                  font-weight: 500;
+                  padding-left: 0 5px;
+                  font-family: sans-serif;">
+                  <span style="
+                  color: #fff;
+                  font-weight: 900;
+                  background-color: rgb(160, 0, 0);">KORE</span>
+                  <span style="
+                  font-weight: 900;
+                  color: rgb(160, 0, 0);
+                  background-color: #fff;">SOFT</span></h1>
+                  <a href="https://Ksdacllp-dashboard-frontend-challenge.netlify.app" style="
+                  text-decoration: none;
+                  font-size: 11px;
+                  font-weight: 800;">View in website</a>
+              </div>
+              <div style="width: 90%;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+              background-color: rgb(160, 0, 0);
+              color: #fff;
+              padding: 1rem 0;
+              font-size: 30px;">
+                  <i class="fa fa-envelope"></i>
+                  <p style="
+                   font-size: 12px;
+                  font-size: 18px;
+                  text-transform: uppercase;
+                  padding: 00px 30px;
+                  font-weight: 900;">Welcome to KORE SOFT</p>
+              </div>
+              <div style="width: 90%;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              width: 90%;
+              background-color: #fff;" id="container3">
+                  <h2 style="
+                  font-size: 18px;
+                  text-align: center;
+                  width: 80%;
+                  padding: 20px;
+                  margin: 10px;
+                  color: gray;">Confirmation Email</h2>
+  
+                  <p style="
+                  font-size: 12px;
+                  text-align: center;
+                  width: 80%;
+                  color: gray;
+                  text-align: start;
+                  margin: 10px;
+                  padding: 20px;">To procced with verification of account, please click button below. NOTE: Keep this password (${generatedPassword}) you will use it to login after verifying your account successfully.</p>
+  
+                  <a href=${url} style="
+                  width: 30%;
+                  margin: 1rem 0;
+                  cursor: default;"><button style="
+                    text-align: center;
+                    width: 80%;
+                  background-color: rgb(160, 0, 0);
+                  color: #fff;
+                  font-size: 11px;
+                  outline: none;
+                  cursor: pointer;
+                  border: none;
+                  padding: 7px 0 ;">Verify Email adress</button></a>
                   
-                  <div>
-                  
-                  <h2> Welcome to SalonEverywhere <span class="pet-color"> ):</span></h2>
-                  
-                  <p> We're delighted to have you onboard </p>
-                  
-                  <p>
-                  You have joined thousands of Berbers, who use and love SalonEverywhere.
-                  <br>
-                  Note: Keep this password (${generatedPassword}) you will use it after verifying your account successfully.
-                  <br>
-                  We have a powerful platform to help you manage your practice with ease. You can check us out at <a href="https://saloneverywhere.com/"> SalonEverywhere </a>.
-                  </p>
-                  
-                  <p>To procced with SalonEverywhere, please click the link below.</p>
-                  
-                  <a class="button" href=${url}> Procced</a>
-                  
-                  <p>If the button is not working. Please copy the link below and paste the link to open the in browser.</p>
-            
-                  <a href=${url}> ${url} </a>
-      
-                  <p>
-                    SalonEverywhere: Your Pro, Your Venue, Your Choice.
-                  </p>
-            
-                  <p>
-                  If you have any questions regarding your SalonEverywhere account, please contact us through <a href="https://saloneverywhere.com/"> SalonEverywhere </a>.
-                  <br>
-                  Our technical support team will assist you with anything you need.
-                  </p>
-      
-                  <p>
-                  Enjoy yourself, and Welcome to SalonEverywhere.
-                  </p>
-      
-                  <p>
-                  Cheers
-                  </p>
-      
-                  <p>
-                    SalonEverywhere
-                  </p>
-      
-                  <p>
-                  <a href="https://saloneverywhere.com/"> https://saloneverywhere.com/ </a>
-                  </p>
-      
-                </div>
-              </body>
-      </html>`,
+              </div>
+              <div style="width: 90%;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              width: 100%;" id="container4">
+                  <h2 style="
+                  font-size: 18px;
+                  text-align: center;
+                  margin: 1.4rem;">Stay in touch</h2>
+                  <div style="
+                  width: 30%;
+                  display: flex;
+                  justify-content: space-between;
+                  margin: 1.4rem;">   
+                  <i style="
+                  background-color: rgb(0, 145, 255);
+                  border-radius: 50%;
+                  color: #fff;
+                  padding: 12px 14px;
+                  cursor: pointer;" class="fa fa-twitter"></i>
+                  <i style="
+                  background-color: rgba(21, 24, 114, 0.788);
+                  border-radius: 50%;
+                  color: #fff;
+                  padding: 12px 14px;
+                  cursor: pointer;" class="fa fa-facebook"></i>
+                  <i style="
+                  background-color: #fff;
+                  border-radius: 50%;
+                  color:rgb(0, 145, 255) ;
+                  padding: 12px 14px;
+                  cursor: pointer;" class="fa fa-linkedin"></i>
+                  </div>
+                  <p style="
+                  font-size: 12px;
+                  text-align: center;
+                  margin: 10px auto;">@ 2014 All Rights Reserved by <a href="https://Ksdacllp-dashboard-frontend-challenge.netlify.app" style="
+                  text-decoration: none;;"> <span style="
+                  font-size: 11px;
+                  padding : 2px 2px 2px 5px;
+                  color: #fff;
+                  font-weight: 900;
+                  background-color: rgb(160, 0, 0);">KORE</span><span style="
+                  font-size: 11px;
+                  padding : 2px 2px 2px 5px;
+                  font-weight: 900;
+                  color: rgb(160, 0, 0);
+                  background-color: #fff;">SOFT</span> </a> </p> 
+              </div>
+  </div>`,
     };
 
     await transporter.sendMail(messageObj);
@@ -124,78 +188,144 @@ class EmailHelper {
         debug: false,
       },
       {
-        from: 'SalonEverywhere <saloneverywheres@gmail.com>',
+        from: 'Kora Soft <saloneverywheres@gmail.com>',
       },
     );
 
     const messageObj = {
       to: `${name} <${to}>`,
-      subject: 'Procced With SalonEverywhere',
+      subject: 'Verification Kora Soft Account',
       text: `Hello ${name}`,
-      html: `<!DOCTYPE html>
-      <html>
-          <head>
-              <style type="text/css">
-                  body{ height: 100%; color: rgb(87, 87, 87)}
-                  h2 { color: rgb(121, 120, 120)}
-                  .pet-color{ color: rgb(175, 3, 3); }
-                  a { color: rgb(175, 3, 3); }
-                  a.button{ background-color:rgb(175, 3, 3); color: #ffff; border-radius: 10px; border: 0; padding: 10px 40px; text-decoration: none; display: inline-block; font-size: 16px;  margin: 20px 00px 20px 00px; }
-                  /* a.button:hover{ background-color: rgb(175, 3, 3); color: #fff; } */
-                  </style>
-                  <title></title>
-              </head>
-              <body>
+      html: `<div>
+      <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+              <div style="
+              width: 100%;
+              display: grid;
+              grid-template-columns: 1fr 1fr;
+              justify-content: space-between;">
+                  <h1 style="
+                  font-size: 15px;
+                  font-weight: 500;
+                  padding-left: 0 5px;
+                  font-family: sans-serif;">
+                  <span style="
+                  color: #fff;
+                  font-weight: 900;
+                  background-color: rgb(160, 0, 0);">KORE</span>
+                  <span style="
+                  font-weight: 900;
+                  color: rgb(160, 0, 0);
+                  background-color: #fff;">SOFT</span></h1>
+                  <a href="https://Ksdacllp-dashboard-frontend-challenge.netlify.app" style="
+                  text-decoration: none;
+                  font-size: 11px;
+                  font-weight: 800;">View in website</a>
+              </div>
+              <div style="width: 90%;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+              background-color: rgb(160, 0, 0);
+              color: #fff;
+              padding: 1rem 0;
+              font-size: 30px;">
+                  <i class="fa fa-envelope"></i>
+                  <p style="
+                   font-size: 12px;
+                  font-size: 18px;
+                  text-transform: uppercase;
+                  padding: 00px 30px;
+                  font-weight: 900;">Welcome to KORE SOFT</p>
+              </div>
+              <div style="width: 90%;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              width: 90%;
+              background-color: #fff;" id="container3">
+                  <h2 style="
+                  font-size: 18px;
+                  text-align: center;
+                  width: 80%;
+                  padding: 20px;
+                  margin: 10px;
+                  color: gray;">Verification Email</h2>
+  
+                  <p style="
+                  font-size: 12px;
+                  text-align: center;
+                  width: 80%;
+                  color: gray;
+                  text-align: start;
+                  margin: 10px;
+                  padding: 20px;">To procced with the action, please click button below.Any query ? Feel-free to reach-out to us we are happyly to respond your query.</p>
+  
+                  <a href=${url} style="
+                  width: 30%;
+                  margin: 1rem 0;
+                  cursor: default;"><button style="
+                    text-align: center;
+                    width: 80%;
+                  background-color: rgb(160, 0, 0);
+                  color: #fff;
+                  font-size: 11px;
+                  outline: none;
+                  cursor: pointer;
+                  border: none;
+                  padding: 7px 0 ;">Procced Now</button></a>
                   
-                  <div>
-                  
-                  <h2> Welcome to SalonEverywhere <span class="pet-color"> ):</span></h2>
-                  
-                  <p> We're delighted to have you onboard </p>
-                  
-                  <p>
-                  You have joined thousands of Berbers, who use and love SalonEverywhere.
-                  <br>
-                  We have a powerful platform to help you manage your practice with ease. You can check us out at <a href="https://saloneverywhere.com/"> SalonEverywhere </a>.
-                  </p>
-                  
-                  <p>To procced with SalonEverywhere, please click the link below.</p>
-                  
-                  <a class="button" href=${url}> Procced</a>
-                  
-                  <p>If the button is not working. Please copy the link below and paste the link to open the in browser.</p>
-            
-                  <a href=${url}> ${url} </a>
-      
-                  <p>
-                    SalonEverywhere: Your Pro, Your Venue, Your Choice.
-                  </p>
-            
-                  <p>
-                  If you have any questions regarding your SalonEverywhere account, please contact us through <a href="https://saloneverywhere.com/"> SalonEverywhere </a>.
-                  <br>
-                  Our technical support team will assist you with anything you need.
-                  </p>
-      
-                  <p>
-                  Enjoy yourself, and Welcome to SalonEverywhere.
-                  </p>
-      
-                  <p>
-                  Cheers
-                  </p>
-      
-                  <p>
-                    SalonEverywhere
-                  </p>
-      
-                  <p>
-                  <a href="https://saloneverywhere.com/"> https://saloneverywhere.com/ </a>
-                  </p>
-      
-                </div>
-              </body>
-      </html>`,
+              </div>
+              <div style="width: 90%;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              width: 100%;" id="container4">
+                  <h2 style="
+                  font-size: 18px;
+                  text-align: center;
+                  margin: 1.4rem;">Stay in touch</h2>
+                  <div style="
+                  width: 30%;
+                  display: flex;
+                  justify-content: space-between;
+                  margin: 1.4rem;">   
+                  <i style="
+                  background-color: rgb(0, 145, 255);
+                  border-radius: 50%;
+                  color: #fff;
+                  padding: 12px 14px;
+                  cursor: pointer;" class="fa fa-twitter"></i>
+                  <i style="
+                  background-color: rgba(21, 24, 114, 0.788);
+                  border-radius: 50%;
+                  color: #fff;
+                  padding: 12px 14px;
+                  cursor: pointer;" class="fa fa-facebook"></i>
+                  <i style="
+                  background-color: #fff;
+                  border-radius: 50%;
+                  color:rgb(0, 145, 255) ;
+                  padding: 12px 14px;
+                  cursor: pointer;" class="fa fa-linkedin"></i>
+                  </div>
+                  <p style="
+                  font-size: 12px;
+                  text-align: center;
+                  margin: 10px auto;">@ 2014 All Rights Reserved by <a href="https://Ksdacllp-dashboard-frontend-challenge.netlify.app" style="
+                  text-decoration: none;;"> <span style="
+                  font-size: 11px;
+                  padding : 2px 2px 2px 5px;
+                  color: #fff;
+                  font-weight: 900;
+                  background-color: rgb(160, 0, 0);">KORE</span><span style="
+                  font-size: 11px;
+                  padding : 2px 2px 2px 5px;
+                  font-weight: 900;
+                  color: rgb(160, 0, 0);
+                  background-color: #fff;">SOFT</span> </a> </p> 
+              </div>
+    </div>`,
     };
 
     await transporter.sendMail(messageObj);
@@ -203,12 +333,12 @@ class EmailHelper {
 
   /**
    * Handle send success email.
-   * @param {string} message message.
+   * @param {string} url message.
    * @param {string} name user name.
    * @param {string} to a user email.
    * @returns {null} .
    */
-  static async sendSuccessEmail(message, name, to) {
+  static async sendSuccessEmail(url, name, to) {
     const transporter = await nodemailer.createTransport(
       {
         service: 'gmail',
@@ -220,41 +350,144 @@ class EmailHelper {
         debug: false,
       },
       {
-        from: 'SalonEverywhere <saloneverywheres@gmail.com>',
+        from: 'Kora Soft <saloneverywheres@gmail.com>',
       },
     );
 
     const messageObj = {
       to: `${name} <${to}>`,
-      subject: 'SalonEverywhere Successfully Email',
-      text: `Hello Dear ${name}`,
-      html: `<!DOCTYPE html>
-      <html>
-          <head>
-              <style type="text/css">
-                  body{ height: 100%; color: rgb(87, 87, 87)}
-                  h2 { color: rgb(121, 120, 120)}
-                  .pet-color{ color: rgb(175, 3, 3); }
-                  a { color: rgb(175, 3, 3); }
-                  a.button{ background-color:rgb(175, 3, 3); color: #ffff; border-radius: 10px; border: 0; padding: 10px 40px; text-decoration: none; display: inline-block; font-size: 16px;  margin: 20px 00px 20px 00px; }
-                  /* a.button:hover{ background-color: rgb(175, 3, 3); color: #fff; } */
-                  </style>
-                  <title></title>
-              </head>
-              <body style="text-align: center; width: 60%; margin: auto; ">
-                <div>
-                <h2> Welcome to SalonEverywhere<span class="pet-color"> ):</span></h2>
-    
-                <p> ${message} </p>
-          
-                <p> ---Your supporter from SalonEverywhere</p>
-                
-              <a href="https://saloneverywhere.com/"> https://saloneverywhere.com/ </a>
-              </p>
-    
+      subject: 'Successfully Kora Soft Account',
+      text: `Hello ${name}`,
+      html: `<div>
+      <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+              <div style="
+              width: 100%;
+              display: grid;
+              grid-template-columns: 1fr 1fr;
+              justify-content: space-between;">
+                  <h1 style="
+                  font-size: 15px;
+                  font-weight: 500;
+                  padding-left: 0 5px;
+                  font-family: sans-serif;">
+                  <span style="
+                  color: #fff;
+                  font-weight: 900;
+                  background-color: rgb(160, 0, 0);">KORE</span>
+                  <span style="
+                  font-weight: 900;
+                  color: rgb(160, 0, 0);
+                  background-color: #fff;">SOFT</span></h1>
+                  <a href="https://Ksdacllp-dashboard-frontend-challenge.netlify.app" style="
+                  text-decoration: none;
+                  font-size: 11px;
+                  font-weight: 800;">View in website</a>
               </div>
-              </body>
-            </html>`,
+              <div style="width: 90%;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+              background-color: rgb(160, 0, 0);
+              color: #fff;
+              padding: 1rem 0;
+              font-size: 30px;">
+                  <i class="fa fa-envelope"></i>
+                  <p style="
+                   font-size: 12px;
+                  font-size: 18px;
+                  text-transform: uppercase;
+                  padding: 00px 30px;
+                  font-weight: 900;">Welcome to KORE SOFT</p>
+              </div>
+              <div style="width: 90%;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              width: 90%;
+              background-color: #fff;" id="container3">
+                  <h2 style="
+                  font-size: 18px;
+                  text-align: center;
+                  width: 80%;
+                  padding: 20px;
+                  margin: 10px;
+                  color: gray;">Successfully Email</h2>
+  
+                  <p style="
+                  font-size: 12px;
+                  text-align: center;
+                  width: 80%;
+                  color: gray;
+                  text-align: start;
+                  margin: 10px;
+                  padding: 20px;">Hello we are happyly to let you know that you are successfully completed the process. Any query ? Feel-free to reach-out to us we are happyly to respond your query.</p>
+  
+                  <a href=${url} style="
+                  width: 30%;
+                  margin: 1rem 0;
+                  cursor: default;"><button style="
+                    text-align: center;
+                    width: 80%;
+                  background-color: rgb(160, 0, 0);
+                  color: #fff;
+                  font-size: 11px;
+                  outline: none;
+                  cursor: pointer;
+                  border: none;
+                  padding: 7px 0 ;">Procced Now</button></a>
+                  
+              </div>
+              <div style="width: 90%;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              width: 100%;" id="container4">
+                  <h2 style="
+                  font-size: 18px;
+                  text-align: center;
+                  margin: 1.4rem;">Stay in touch</h2>
+                  <div style="
+                  width: 30%;
+                  display: flex;
+                  justify-content: space-between;
+                  margin: 1.4rem;">   
+                  <i style="
+                  background-color: rgb(0, 145, 255);
+                  border-radius: 50%;
+                  color: #fff;
+                  padding: 12px 14px;
+                  cursor: pointer;" class="fa fa-twitter"></i>
+                  <i style="
+                  background-color: rgba(21, 24, 114, 0.788);
+                  border-radius: 50%;
+                  color: #fff;
+                  padding: 12px 14px;
+                  cursor: pointer;" class="fa fa-facebook"></i>
+                  <i style="
+                  background-color: #fff;
+                  border-radius: 50%;
+                  color:rgb(0, 145, 255) ;
+                  padding: 12px 14px;
+                  cursor: pointer;" class="fa fa-linkedin"></i>
+                  </div>
+                  <p style="
+                  font-size: 12px;
+                  text-align: center;
+                  margin: 10px auto;">@ 2014 All Rights Reserved by <a href="https://Ksdacllp-dashboard-frontend-challenge.netlify.app" style="
+                  text-decoration: none;;"> <span style="
+                  font-size: 11px;
+                  padding : 2px 2px 2px 5px;
+                  color: #fff;
+                  font-weight: 900;
+                  background-color: rgb(160, 0, 0);">KORE</span><span style="
+                  font-size: 11px;
+                  padding : 2px 2px 2px 5px;
+                  font-weight: 900;
+                  color: rgb(160, 0, 0);
+                  background-color: #fff;">SOFT</span> </a> </p> 
+              </div>
+    </div>`,
     };
 
     await transporter.sendMail(messageObj);

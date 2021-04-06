@@ -10,7 +10,7 @@ router
   .get('/logout-user', verifySesion, authController.logoutUser)
   .get('/verify-user-account/:session', authController.verifyAccount)
   .post('/login-user', validateLoginUser, verifyLogin, authController.loginUser)
-  .post('/register-user', verifySesion, multipart, validateRegisterUser, authController.registerUser)
-  .post('/resend-verification-link/:action', verifyLogin, validateResend, authController.sentVerificationLink);
+  .post('/resend-verification-link/:action', validateResend, authController.sendVerificationLink)
+  .post('/register-user', verifySesion, multipart, validateRegisterUser, authController.registerUser);
 
 export default router;
