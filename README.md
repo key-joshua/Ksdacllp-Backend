@@ -25,7 +25,7 @@ https://github.com/key-joshua/Ksdacllp-Backend
 - login a user into verified account.
 - Etc ...
 
-## Test SalonEverywhere APIs
+## Test Ksdac llp APIs
 
 Before we get started Remember to take  :coffee:   :pizza:  and :dancer:   When You Are coding, come on Dude it all about relax
 
